@@ -37,12 +37,9 @@ exports.enviarEmail = functions.https.onRequest((req, res) => {
     };
 
     transporter.sendMail(messageEmail, (error, info) => {
-      if (error) {
-        console.log(`Failed to send the message "${message}" from <${name}> ${email} with the error ${error && error.message}`);
+      if (error) {        
         res.status(500).send("Error");
       } else {
-        console.log(`Sent the message "${message}" from <${name}> ${email}.`);
-        console.log(info.envelope);
         res.status(200).send("Sucess");
       }
     });
