@@ -38,7 +38,7 @@ exports.enviarEmail = functions.https.onRequest((req, res) => {
 
     transporter.sendMail(messageEmail, (error, info) => {
       if (error) {        
-        res.status(500).send("Error");
+        res.status(500).send(error);
       } else {
         res.status(200).send("Sucess");
       }
